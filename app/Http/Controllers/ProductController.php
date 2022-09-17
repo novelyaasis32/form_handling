@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(10);
+        $products = Product::latest()->paginate(5);
         return view('product.index', compact('products'), [
             'title' => 'Product'
         ]);
@@ -110,16 +110,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::findOrFail($id);
-        Storage::disk('local')->delete('public/products/'.$product->gambar);
-        $product->delete();
-
-        if($product){
-            //redirect dengan pesan sukses
-            return redirect()->route('product.index')->with(['success' => 'Data Berhasil Dihapus!']);
-        }else{
-            //redirect dengan pesan error
-            return redirect()->route('product.index')->with(['error' => 'Data Gagal Dihapus!']);
-        }
+        
     }
 }

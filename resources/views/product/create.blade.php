@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">GAMBAR</label>
+                                <label class="font-weight-bold">Gambar Produk</label>
                                 <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar">
 
                                 <!-- error message untuk namaproduk -->
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">DESKRIPSI</label>
+                                <label class="font-weight-bold">Deksripsi Produk</label>
                                 <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" value="{{ old('deskripsi') }}" placeholder="Masukkan deskripsi rumah">
 
                                 <!-- error message untuk deskripsi -->
