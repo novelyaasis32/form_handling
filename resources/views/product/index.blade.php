@@ -22,7 +22,7 @@
                                 <th scope="col">Kategori</th>
                                 <th scope="col">Gambar</th>
                                 <th scope="col">Deskripsi</th>
-                                <th scope="col">AKSI</th>
+                                <!-- <th scope="col">AKSI</th> -->
                               </tr>
                             </thead>
                             <tbody>
@@ -33,14 +33,14 @@
                                         <img src="{{ Storage::url('public/products/').$product->gambar }}" class="rounded" style="width: 150px">
                                     </td>
                                     <td>{{ $product->deskripsi }}</td>
-                                    <td class="text-center">
+                                    <!-- <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('product.destroy', $product->id) }}" method="POST">
                                             <a href="{{ route('product.edit', $product->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                         </form>
-                                    </td>
+                                    </td> -->
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">

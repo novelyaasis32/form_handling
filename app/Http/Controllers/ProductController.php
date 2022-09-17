@@ -87,9 +87,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('product.edit', compact('product'), [
-            'title' => 'Edit Product'
-        ]);
+        
     }
 
     /**
@@ -101,46 +99,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $this->validate($request, [
-            'namaproduk'     => 'required',
-            'gambar'       => 'required|image|mimes:png,jpg,jpeg',
-            'deskripsi'         => 'required'
-        ]);
-
-        //get data Product by ID
-        $product = Product::findOrFail($product->id);
-
-        if($request->file('gambar') == "") {
-
-            $product->update([
-                'namaproduk' => $request->namaproduk,
-                'deskripsi'     => $request->deskripsi
-            ]);
-
-        } else {
-
-            //hapus old image
-            Storage::disk('local')->delete('public/products/'.$product->gambar);
-
-            //upload new image
-            $gambar = $request->file('gambar');
-            $gambar->storeAs('public/products', $gambar->hashName());
-
-            $product->update([
-                'namaproduk' => $request->namaproduk,
-                'gambar'   => $gambar->hashName(),
-                'deskripsi'     => $request->deskripsi
-            ]);
-
-        }
-
-        if($product){
-            //redirect dengan pesan sukses
-            return redirect()->route('product.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
-            //redirect dengan pesan error
-            return redirect()->route('product.index')->with(['error' => 'Data Gagal Disimpan!']);
-        }
+        
     }
 
     /**
