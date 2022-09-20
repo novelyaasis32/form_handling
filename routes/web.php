@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MahasiswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +25,6 @@ Route::get('/', function () {
 // Route::post('products', [ProductsController::class, 'store']);
 
 Route::resource('/product', ProductController::class);
+Route::get('mahasiswa/pdf', [MahasiswaController::class, 'cetak_pdf']);
+Route::resource('mahasiswa', MahasiswaController::class);
 
